@@ -8,10 +8,10 @@ var express    = require('express');        // call express
 var app        = express();                 // define our app using express
 var bodyParser = require('body-parser');
 var gpio = require('pi-gpio');
-
-gpio.write(7, 1, function() {
-  console.log("7th PIN fired");
-});
+// 
+// gpio.write(7, 1, function() {
+//   console.log("7th PIN fired");
+// });
 
 
 
@@ -33,6 +33,19 @@ router.get('/', function(req, res) {
 });
 router.get('/soop', function(req, res) {
     res.json({ message: 'soop! welcome to our api!' });
+});
+
+router.get('/enable', function(req, res) {
+  gpio.write(7, 1, function() {
+    console.log("7th PIN fired");
+  });
+});
+
+router.get('/disable', function(req, res) {
+  gpio.write(7, 0, function() {
+    console.log("7th PIN disabled");
+  });
+
 });
 
 // more routes for our API will happen here
