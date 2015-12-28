@@ -9,7 +9,9 @@ var app        = express();                 // define our app using express
 var bodyParser = require('body-parser');
 var gpio = require('pi-gpio');
 
-gpio.write(7, 1);
+gpio.write(7, 1, function() {
+  console.log("7th PIN fired");
+});
 
 
 
