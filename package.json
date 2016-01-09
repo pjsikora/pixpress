@@ -12,7 +12,6 @@
     "body-parser": "^1.14.2",
     "express": "^4.13.3",
     "mongoose": "^4.3.4",
-    "pi-gpio": "0.0.8",
-    "rpi-gpio": "^0.7.0"
+    "onoff": "^1.0.3"
   }
 }
