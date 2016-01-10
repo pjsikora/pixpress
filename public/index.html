@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Raspberry PI page</title>
+</head>
+<body>
+  <h1>RPI page - GPIO test</h1>
+
+  <button type="button" name="button" onclick="enable(this)">Enable</button> <br>
+  <button type="button" name="button" onclick="disable(this)">Disable</button> <br>
+  <button type="button" name="button" onclick="animation(this)">Animation</button> <br>
+
+  <a href="#"  onclick="enable(this)">Enable</a>
+  <a href="#"  onclick="disable(this)">Disable</a>
+
+
+  <script type="text/javascript">
+  function enable(e) {
+    var xhttp = new XMLHttpRequest();
+
+    xhttp.open("GET", "/on", true);
+    xhttp.send();
+  }
+
+  function disable(e) {
+    var xhttp = new XMLHttpRequest();
+
+    xhttp.open("GET", "/off", true);
+    xhttp.send();
+  }
+
+  function animation(e) {
+    var xhttp = new XMLHttpRequest();
+
+    xhttp.open("GET", "/anim", true);
+    xhttp.send();
+  }
+  </script>
+</body>
+</html>
