@@ -1,7 +1,7 @@
 var express = require('express'),
 app = express(),
 GPIO = require('onoff').Gpio,
-led = new GPIO('18', 'out');
+led = new GPIO('5', 'out');
 
 // app.get('/', function(req, res) {
 // 	res.send('hello world');
