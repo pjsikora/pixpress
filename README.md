@@ -5,7 +5,14 @@ on.js - file which will enable 18th GPIO pin
 off.js - file which will disable 18th GPIO pin
 anim.js - file which will enable simple on/off combination on 18th GPIO pin
 
+
 server.js - simple server with possibility of enabling/disabling 18th GPIO pin
+
+#GPIO section
+![GPIO pins image](http://fedojo.com/wp-content/uploads/2016/01/gpiorpi2.png)
+
+#Raspberry PI basics
+This section is covering the basics of Raspberry PI based on Raspbian.
 
 ##Raspberry PI - Quick how to
 
