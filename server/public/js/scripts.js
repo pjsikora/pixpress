@@ -3,37 +3,29 @@ function ajax(url) {
 
     xhttp.open("GET", "/"+url, true);
     xhttp.send();
+
+    xhttp.onreadystatechange = function() {
+        if (xhttp.readyState == 4 && xhttp.status == 200) {
+            console.log(xhttp.responseText);
+        }
+    };
 }
 
 
 function enable(e) {
     ajax('on');
-    //var xhttp = new XMLHttpRequest();
-    //
-    //xhttp.open("GET", "/on", true);
-    //xhttp.send();
 }
 
 function enableLed(e, num) {
-
-    var xhttp = new XMLHttpRequest();
-
-    xhttp.open("GET", "/enable/" + num, true);
-    xhttp.send();
+    ajax('enable/'+num);
 }
 
 function disableLed(e, num) {
-    var xhttp = new XMLHttpRequest();
-
-    xhttp.open("GET", "/disable/" + num, true);
-    xhttp.send();
+    ajax('disable/'+num);
 }
 
 function disable(e) {
-    var xhttp = new XMLHttpRequest();
-
-    xhttp.open("GET", "/off", true);
-    xhttp.send();
+    ajax('off');
 }
 
 function animationOn(e) {

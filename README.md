@@ -10,6 +10,19 @@ server.js - simple server with possibility of enabling/disabling 18th GPIO pin
 #GPIO section
 ![GPIO pins image](http://fedojo.com/wp-content/uploads/2016/01/gpiorpi2.png)
 
+
+#Quick autobuild
+If you are rebuilding code or you wish to make changes and need an automatic rebuilder each time you change the code I recommend to use supervisor.
+```
+sudo install supervisor -g 
+```
+
+than
+```
+supervisor index.js
+```
+
+
 #Raspberry PI basics
 This section is covering the basics of Raspberry PI based on Raspbian.
 
@@ -49,4 +62,5 @@ ssh pi@<IP>
 Than you will need to input password. Default password is:
 ```
 raspberry
-```
+```  
+

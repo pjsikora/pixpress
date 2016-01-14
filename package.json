@@ -11,6 +11,7 @@
   "dependencies": {
     "body-parser": "^1.14.2",
     "express": "^4.13.3",
+    "jade": "^1.11.0",
     "onoff": "^1.0.3",
     "socket.io": "^1.4.4"
   }

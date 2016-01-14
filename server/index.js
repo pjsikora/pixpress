@@ -10,51 +10,62 @@ var express = require('express'),
     led08 = new GPIO('8', 'out');
 
 
+function printRequestInfo(name, req) {
+    console.log('Req IP: '+ req.connection.remoteAddress + ' | '+ new Date() +' | request name: ' + name);
+}
 
-
+app.get('/', function(req, res) {
+    res.render('index');
+});
+app.get('/read', function(req, res) {
+    res.render('read');
+});
 
 app.get('/on', function (req, res) {
     gpio.enableAll();
-    console.log('on');
+    printRequestInfo('/on', req);
+
     res.json({message: 'led is on'});
 });
 
 app.get('/off', function (req, res) {
     gpio.disableAll();
-    console.log('off');
+    printRequestInfo('/off', req);
+
     res.json({message: 'led is off'});
 });
 
 app.get('/enable/:led', function (req, res) {
     gpio.enable(req.params.led);
-    console.log('on: '+req.params.led);
+    printRequestInfo('/enable/'+req.params.led, req);
 
     res.json({message: 'led is on'});
 });
 
 app.get('/disable/:led', function (req, res) {
     gpio.disable(req.params.led);
-    console.log('off: '+req.params.led);
+    printRequestInfo('/disable/'+req.params.led, req);
 
     res.json({message: 'led is on'});
 });
 
-app.get('/read', function (req, res) {
-    console.log('value: ' + led.readSync());
-    res.json({message: led.readSync()});
-});
+//app.get('/read', function (req, res) {
+//    console.log('value: ' + led.readSync());
+//    res.json({message: led.readSync()});
+//});
 
 app.get('/animate-on', function (req, res) {
     console.log('animation');
 
     var enabled = 0;
+
     animation = setInterval(function () {
             if (enabled) {
-                led.writeSync(0);
+                led04.writeSync(0);
                 enabled = 0;
             }
             else {
-                led.writeSync(1);
+                led04.writeSync(1);
                 enabled = 1;
             }
         }, 500);
@@ -73,5 +84,7 @@ app.get('/animate-off', function (req, res) {
 app.listen(3000, function () {
     console.log('server on');
 });
+
+app.set('view engine', 'jade');
 
 app.use(express.static('public'));
