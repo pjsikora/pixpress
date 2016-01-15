@@ -65,7 +65,6 @@ exports.disable = function (el) {
 }
 
 exports.enableAll = function () {
-    //leds.
     led04.writeSync(1);
     led05.writeSync(1);
     led06.writeSync(1);
