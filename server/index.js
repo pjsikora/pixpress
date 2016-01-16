@@ -1,11 +1,11 @@
 var express = require('express'),
     app = express(),
-
-    routesViews = require('./routes/views'),
-    routesApi = require('./routes/api');
+    routesApi = require('./routes/api'),
+    routesUser = require('./routes/user'),
+    routesViews = require('./routes/views');
 
 app.use('/', routesViews);
-app.use('/api', routesApi);
+app.use('/user', routesUser);
 
 app.listen(3000, function () {
     console.log('Start server');
