@@ -64,3 +64,6 @@ Than you will need to input password. Default password is:
 raspberry
 ```  
 
+
+#Read more 
+raspberry-pi-node-js-and-how-to-start-with-programming-gpio-pixpress-project-on-github

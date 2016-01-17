@@ -2,7 +2,7 @@
 var GPIO = require('onoff').Gpio,
     led02 = new GPIO(2, 'out'),
     led03 = new GPIO(3, 'out'),
-    led04 = new GPIO(4, 'out'),
+    led04 = new GPIO(4, 'both'),
     led05 = new GPIO(5, 'out'),
     led06 = new GPIO(6, 'out'),
     led07 = new GPIO(7, 'out'),
@@ -78,6 +78,20 @@ exports.disableAll = function () {
     led06.writeSync(0);
     led07.writeSync(0);
     led08.writeSync(0);
+}
+
+exports.watchAll = function () {
+    led04.watch(function(err, value) {
+        led04.writeSync(value);
+        console.log('WATCH');
+        console.log(led04.writeSync(value));
+    });
+}
+
+exports.readAll = function (err, value) {
+    led04.read(function() {
+        console.log('Read of Led 04: '+value)
+    })
 }
 
 exports.leftToRight = function(first, last, time) {

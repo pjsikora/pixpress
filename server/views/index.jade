@@ -19,13 +19,15 @@ block content
                 button.button.alert(type="button", name="button", onclick="animationOff(this)") Disable animation
 
 
-        - var n = 2
+        - var n = 1
 
         while n < 27
+            //= n++
             //li= n++
+            - n++
             .row
                 .small-2.columns
-                    span GPIO #{n++}
+                    span GPIO #{n}
                 .small-10.columns
                     button.button.tiny(type="button", name="button", onclick="enableLed(this, #{n})") Enable
                     button.button.tiny.alert(type="button", name="button", onclick="disableLed(this, #{n})") Disable

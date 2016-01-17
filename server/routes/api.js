@@ -6,6 +6,8 @@ function printRequestInfo(name, req) {
     console.log('Req IP: '+ req.connection.remoteAddress + ' | '+ new Date() +' | request name: ' + name);
 }
 
+
+
 router.get('/on', function (req, res) {
     gpio.enableAll();
     printRequestInfo('/on', req);
