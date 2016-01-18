@@ -57,11 +57,23 @@ var GPIO = require('onoff').Gpio,
     };
 
 exports.enable = function (el) {
-    leds[el].writeSync(1);
+    if (leds[el].readSync() == 0) {
+        leds[el].writeSync(1);
+        return 1;
+    }
+    else {
+        return 0;
+    }
 }
 
 exports.disable = function (el) {
-    leds[el].writeSync(0);
+    if (leds[el].readSync() == 1) {
+        leds[el].writeSync(0);
+        return 1;
+    }
+    else {
+        return 0;
+    }
 }
 
 exports.enableAll = function () {
@@ -81,7 +93,7 @@ exports.disableAll = function () {
 }
 
 exports.watchAll = function () {
-    led04.watch(function(err, value) {
+    led04.watch(function (err, value) {
         led04.writeSync(value);
         console.log('WATCH');
         console.log(led04.writeSync(value));
@@ -89,11 +101,11 @@ exports.watchAll = function () {
 }
 
 exports.readAll = function (err, value) {
-    led04.read(function() {
-        console.log('Read of Led 04: '+value)
+    led04.read(function () {
+        console.log('Read of Led 04: ' + value)
     })
 }
 
-exports.leftToRight = function(first, last, time) {
+exports.leftToRight = function (first, last, time) {
 
 }

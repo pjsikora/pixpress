@@ -1,12 +1,10 @@
 var express = require('express'),
     router = express.Router(),
-    gpio = gpio = require('../animate-gpio');
+    gpio = gpio = require('../lib/animate-gpio');
 
 function printRequestInfo(name, req) {
-    console.log('Req IP: '+ req.connection.remoteAddress + ' | '+ new Date() +' | request name: ' + name);
+    console.log('Req IP: ' + req.connection.remoteAddress + ' | ' + new Date() + ' | request name: ' + name);
 }
-
-
 
 router.get('/on', function (req, res) {
     gpio.enableAll();
@@ -25,19 +23,30 @@ router.get('/off', function (req, res) {
 router.get('/enable/:led', function (req, res) {
     var ledNum = req.params.led;
 
-    gpio.enable(ledNum);
-    printRequestInfo('/enable/'+req.params.led, req);
+    var gpioReturn = gpio.enable(ledNum);
+    printRequestInfo('/enable/' + req.params.led, req);
 
-    res.json({message: ledNum + ' led is on'});
+    if (gpioReturn == 1) {
+        res.json({message: ledNum + ' led is on'});
+    }
+    else {
+        res.json({message: ledNum + ' led is on (was on)'});
+    }
 });
 
 router.get('/disable/:led', function (req, res) {
     var ledNum = req.params.led;
 
-    gpio.disable(ledNum);
-    printRequestInfo('/disable/'+ledNum, req);
+    var gpioReturn = gpio.disable(ledNum);
+    printRequestInfo('/disable/' + ledNum, req);
 
-    res.json({message: ledNum + ' led is off'});
+
+    if (gpioReturn = 1) {
+        res.json({message: ledNum + ' led is off'});
+    }
+    else {
+        res.json({message: ledNum + ' led is off (was off)'});
+    }
 });
 
 router.get('/animate-on', function (req, res) {
