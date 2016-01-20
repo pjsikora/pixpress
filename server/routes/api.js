@@ -1,8 +1,16 @@
 var express = require('express'),
     router = express.Router(),
+    logToFile = express('../lib/logtofile'),
     gpio = gpio = require('../lib/animate-gpio');
 
 function printRequestInfo(name, req) {
+    var log = {
+        "IP": req.connection.remoteAddress,
+        "date": new Date(),
+        "req_name": name
+    }
+
+    //logToFile.append(log, );
     console.log('Req IP: ' + req.connection.remoteAddress + ' | ' + new Date() + ' | request name: ' + name);
 }
 

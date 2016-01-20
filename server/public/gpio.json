@@ -1,0 +1,7 @@
+[
+  { "id": 1, "name": "GPIO 01" },
+  { "id": 2, "name": "GPIO 02" },
+  { "id": 3, "name": "GPIO 03" },
+  { "id": 4, "name": "GPIO 04" },
+  { "id": 5, "name": "GPIO 05" }
+]

@@ -1,17 +1,17 @@
 var express = require('express'),
     app = express(),
-    gpio = gpio = require('./lib/animate-gpio'),
+    //gpio = gpio = require('./lib/animate-gpio'),
 
-    routesApi = require('./routes/api'),
+    //routesApi = require('./routes/api'),
     routesUser = require('./routes/user'),
     routesViews = require('./routes/views');
 
 
-gpio.readAll();
+//gpio.readAll();
 
 app.use('/', routesViews);
 app.use('/user', routesUser);
-app.use('/api', routesApi);
+//app.use('/api', routesApi);
 
 app.listen(3000, function () {
     console.log('Start server');
