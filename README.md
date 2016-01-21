@@ -1,11 +1,22 @@
 #About project
 This is simple introduction to Raspberry PI 2 GPIO.
 
+
+## Scripts in folder gpio-test (based only on onoff lib)
 on.js - file which will enable 18th GPIO pin
 off.js - file which will disable 18th GPIO pin
 anim.js - file which will enable simple on/off combination on 18th GPIO pin
 
-server.js - simple server with possibility of enabling/disabling 18th GPIO pin
+
+## Server
+Run server with command
+than
+```
+node index.js
+```
+
+## FED
+Draft of FED builder
 
 #GPIO section
 ![GPIO pins image](http://fedojo.com/wp-content/uploads/2016/01/gpiorpi2.png)

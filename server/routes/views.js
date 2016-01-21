@@ -7,9 +7,7 @@ router.get('/', function(req, res) {
 });
 
 router.get('/read', function(req, res) {
-    console.log('View: /read');
     res.render('read');
-
 });
 
 module.exports = router;
