@@ -37,6 +37,18 @@ supervisor index.js
 #Raspberry PI basics
 This section is covering the basics of Raspberry PI based on Raspbian.
 
+##Run server on start
+Go to folder /raspbian in project
+
+```
+sudo cp pixpress_on_boot /etc/init.d/
+```
+
+Than add 
+```
+sudo update-rc.d /etc/init.d/pixpress_on_boot defaults
+```
+
 ##Raspberry PI - Quick how to
 Turnoff your PI:
 ```
