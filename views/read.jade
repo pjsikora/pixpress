@@ -1,0 +1,33 @@
+extends ./_layouts/main
+
+block content
+    header
+        .row
+            .small-12.columns
+                h1 RPI page - GPIO read values
+
+    main
+        .row
+            .small-12.columns
+                button.button(type="button", name="button", onclick="enable(this)") Enable all
+                button.button.alert(type="button", name="button", onclick="disable(this)") Disable all
+
+        .row
+            .small-12.columns
+                button.button(type="button", name="button", onclick="animationOn(this)") Enable animation
+                button.button.alert(type="button", name="button", onclick="animationOff(this)") Disable animation
+
+
+        - var n = 2
+
+        while n < 27
+            .row
+                .small-2.columns
+                    span GPIO #{n++}
+                .small-10.columns
+                    button.button.tiny(type="button", name="button", onclick="enableLed(this, #{n})") Enable
+                    button.button.tiny.alert(type="button", name="button", onclick="disableLed(this, #{n})") Disable
+
+
+    script(src='js/scripts.js')
+
